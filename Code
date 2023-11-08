@@ -1,0 +1,22 @@
+import math
+
+# Input values
+I = float(input("Enter the electric current (in picoamperes): "))
+# In this section, we have assumed the distance value to be 5000 nm or 5 µm (based on the paper data, reference #13)
+r = float(input("Enter the distance from the neuron (in nanometers): "))
+
+# Define the μ of neural tissue in T·m/A
+mu_0 = 3.14 * 10**-7  # Value of μ₀ in T·m/A
+
+# Convert units to Amperes and meters (similar to earlier code)
+I = I * 10**-12  # Convert picoamperes to Amperes
+r = r * 10**-9  # Convert micrometers to meters
+
+# Calculate the MF in Tesla
+B = (mu_0 * I) / (2 * math.pi * r)
+
+# Convert MF to femtotesla
+B_femtotesla = B * 10**12
+
+# Output the result
+print("The MF (B) calculated is:", B_femtotesla, "femtotesla")
